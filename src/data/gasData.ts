@@ -1,0 +1,167 @@
+import { GasProduct, CustomerReview } from '../types';
+
+export const STORE_INFO = {
+  name: 'Gás Brasil',
+  subName: 'Revendedora Oficial da Liquigás',
+  phoneWhatsapp: '14988215634',
+  phoneDisplayWhatsapp: '(14) 98821-5634',
+  phoneLandline: '14988335600',
+  phoneDisplayLandline: '(14) 98833-5600',
+  rating: 4.8,
+  totalReviews: 76,
+  hours: 'Aberto Hoje · Atendimento até às 23:00',
+  fullAddress: 'Av. Nuno de Assis, 1166 - Centro, Bauru - SP, 17010-120',
+  googleMapsUrl: 'https://maps.app.goo.gl/hdyH3cvpBGAnJ4Um7',
+  googleReviewsUrl: 'https://www.google.com/search?q=G%C3%A1s+Brasil+-+Revenda+Liquig%C3%A1s+Bauru#lrd=0x94bf679e0a7df8bf:0x4d3db2e2e8316dfa,1,,,',
+  logoUrl: '/assets/logo_gas_brasil_nova.png',
+  
+  // 2 Official Depots in Bauru
+  depot1: {
+    name: 'Depósito 1 (Centro)',
+    address: 'Av. Nuno de Assis, 1166 - Centro',
+    cityZip: 'Bauru - SP, 17010-120',
+    mapsUrl: 'https://maps.app.goo.gl/hdyH3cvpBGAnJ4Um7',
+    hours: 'Seg a Sáb 07h às 23h | Dom 07h às 20h',
+    badge: 'Matriz de Distribuição',
+    embedUrl: 'https://www.google.com/maps?q=-22.3332478,-49.0870401&z=17&output=embed',
+  },
+  depot2: {
+    name: 'Depósito 2 (Vila Seabra / Nuno de Assis)',
+    address: 'Av. Nuno de Assis / Vila Seabra',
+    cityZip: 'Bauru - SP, 17060-200',
+    mapsUrl: 'https://maps.app.goo.gl/RP75ESuVG8LHf2kh7',
+    hours: 'Seg a Sáb 07h às 23h | Dom 07h às 20h',
+    badge: 'Filial de Apoio Rápido',
+    embedUrl: 'https://www.google.com/maps?q=-22.312547,-49.0711382&z=17&output=embed',
+  },
+};
+
+export const GAS_PRODUCTS: GasProduct[] = [
+  {
+    id: 'p13',
+    name: 'Botijão P13 (13kg)',
+    subtitle: 'Gás de Cozinha Residencial',
+    weight: '13 kg',
+    price: 100,
+    priceFormatted: 'R$ 100,00',
+    idealFor: 'Casas, apartamentos e cozinhas em geral',
+    description: 'O botijão mais seguro e tradicional do Brasil com pesagem garantida e lacre inviolável da Liquigás.',
+    image: '/src/assets/images/botijao_p13_gas_1792802403070.jpg',
+    badge: 'Mais Vendido em Bauru',
+    popular: true,
+  },
+  {
+    id: 'p45',
+    name: 'Cilindro P45 (45kg)',
+    subtitle: 'Comercial & Condomínios',
+    weight: '45 kg',
+    price: 410,
+    priceFormatted: 'R$ 410,00',
+    idealFor: 'Restaurantes, lanchonetes, condomínios e indústrias',
+    description: 'Cilindro industrial de alta capacidade e fluxo contínuo para edifícios e comércios.',
+    image: '/src/assets/images/cilindro_p45_gas_1792802429692.jpg',
+    badge: 'Comercial',
+  },
+  {
+    id: 'p5',
+    name: 'Botijão P5 (5kg)',
+    subtitle: 'Compacto & Portátil',
+    weight: '5 kg',
+    price: 110,
+    priceFormatted: 'R$ 110,00',
+    idealFor: 'Espaços compactos, food trucks e pequenos comércios',
+    description: 'Praticidade e economia com a mesma chama forte e segurança original Liquigás.',
+    image: '/src/assets/images/botijao_p5_gas_1792802454057.jpg',
+    badge: 'Compacto',
+  },
+];
+
+export const LIVE_PURCHASE_NOTIFICATIONS = [
+  {
+    name: 'Juliana S.',
+    neighborhood: 'Mary Dota',
+    product: 'Botijão P13 (13kg)',
+    timeAgo: 'há 1 minuto',
+  },
+  {
+    name: 'Ricardo M.',
+    neighborhood: 'Centro',
+    product: 'Botijão P13 (13kg)',
+    timeAgo: 'há 2 minutos',
+  },
+  {
+    name: 'Fernanda O.',
+    neighborhood: 'Bela Vista',
+    product: 'Botijão P13 (13kg)',
+    timeAgo: 'há 3 minutos',
+  },
+  {
+    name: 'Marcos A.',
+    neighborhood: 'Altos da Cidade',
+    product: 'Cilindro P45 (45kg)',
+    timeAgo: 'há 1 minuto',
+  },
+  {
+    name: 'Lanchonete Bom Sabor',
+    neighborhood: 'Núcleo Geisel',
+    product: 'Cilindro P45 (45kg)',
+    timeAgo: 'há 4 minutos',
+  },
+  {
+    name: 'Camila R.',
+    neighborhood: 'Vila Falcão',
+    product: 'Botijão P13 (13kg)',
+    timeAgo: 'há 2 minutos',
+  },
+  {
+    name: 'José Carlos',
+    neighborhood: 'Jardim Redentor',
+    product: 'Botijão P13 (13kg)',
+    timeAgo: 'há 5 minutos',
+  },
+  {
+    name: 'Amanda P.',
+    neighborhood: 'Jardim Estoril',
+    product: 'Botijão P13 (13kg)',
+    timeAgo: 'há 1 minuto',
+  },
+];
+
+export const CUSTOMER_REVIEWS: CustomerReview[] = [
+  {
+    id: '1',
+    name: 'Carlos Eduardo M.',
+    neighborhood: 'Centro, Bauru',
+    rating: 5,
+    comment: 'Atendimento nota 10! Chamei no WhatsApp e em 15 minutos o botijão já estava instalado. O gás da Liquigás rende muito mais.',
+    date: 'Há 2 dias',
+    verified: true,
+  },
+  {
+    id: '2',
+    name: 'Fernanda Garcia',
+    neighborhood: 'Mary Dota, Bauru',
+    rating: 5,
+    comment: 'Salvou nosso almoço de domingo! O rapaz foi super educado, fez o teste de vazamento e parcelou no cartão na maquininha sem taxas.',
+    date: 'Há 1 semana',
+    verified: true,
+  },
+  {
+    id: '3',
+    name: 'Roberto L. (Restaurante)',
+    neighborhood: 'Bela Vista, Bauru',
+    rating: 5,
+    comment: 'Somos clientes de P45 da Gás Brasil há anos. Pontualidade britânica e atendimento excelente.',
+    date: 'Há 2 semanas',
+    verified: true,
+  },
+  {
+    id: '4',
+    name: 'Mariana Silveira',
+    neighborhood: 'Altos da Cidade, Bauru',
+    rating: 5,
+    comment: 'Utilizo o vale do Gás do Povo aqui e é super descomplicado. A melhor revendedora Liquigás de Bauru sem dúvidas!',
+    date: 'Há 3 semanas',
+    verified: true,
+  },
+];

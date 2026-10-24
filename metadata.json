@@ -1,0 +1,6 @@
+{
+  "name": "Gás Brasil - Revendedora Oficial Liquigás Bauru",
+  "description": "Website ultra moderno com pedido pelo WhatsApp, simulador de frete por bairro, rastreamento 3D em tempo real e programa Gás do Povo em Bauru.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --liqui-green: #008751;
+    --liqui-orange: #FF6B00;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F1F4F9; /* Branco mais apagado/suave com excelente contraste */
+    color: #0F172A;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Liquid Glass Clean Styling with Enhanced Contrast */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.glass-card {
+  background: #FFFFFF;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.07);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 135, 81, 0.4);
+  box-shadow: 0 16px 36px -4px rgba(0, 135, 81, 0.12);
+}
+
+/* High-Contrast Action Buttons with Tactile Hover Effects */
+.btn-whatsapp-hero {
+  background: linear-gradient(135deg, #008751 0%, #006D41 100%);
+  color: #FFFFFF;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(0, 135, 81, 0.35);
+}
+
+.btn-whatsapp-hero:hover {
+  background: linear-gradient(135deg, #00995c 0%, #007A49 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 135, 81, 0.45);
+}
+
+.btn-whatsapp-hero:active {
+  transform: translateY(0);
+}
+
+.btn-orange-hero {
+  background: linear-gradient(135deg, #FF6B00 0%, #E65A00 100%);
+  color: #FFFFFF;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.35);
+}
+
+.btn-orange-hero:hover {
+  background: linear-gradient(135deg, #FF7B1A 0%, #FF6B00 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(255, 107, 0, 0.45);
+}
+
+.btn-orange-hero:active {
+  transform: translateY(0);
+}
+
+.btn-dark-hero {
+  background: #0F172A;
+  color: #FFFFFF;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+}
+
+.btn-dark-hero:hover {
+  background: #1E293B;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.3);
+}
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E2E8F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748B;
+}
+
+/* Smooth Scroll Reveal Effect */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+

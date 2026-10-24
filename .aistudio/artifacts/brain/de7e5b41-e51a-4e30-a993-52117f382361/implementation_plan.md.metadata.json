@@ -1,0 +1,6 @@
+{
+  "summary":  "Plano de implementação atualizado refletindo todas as melhorias da Landing Page Gás Brasil (Liquigás Bauru):\n- Carrossel com 6 fotos em alta qualidade, transição contínua sem travar e sem setas manuais\n- Notificação push de pedidos com animação suave de entrada e saída (fade + glide)\n- Barra de confiança natural e elegante sem divisória brusca\n- Número do cabeçalho formatado sem quebra de linha no mobile\n- Efeito de scroll reveal em todas as seções principais da página",
+  "updatedAt":  "2026-10-24T01:52:26.292938626Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}
