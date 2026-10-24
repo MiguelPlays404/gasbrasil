@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { GAS_PRODUCTS, STORE_INFO } from '../data/gasData';
 import { GasTypeId, PaymentMethod } from '../types';
+import { FirebaseImage } from './FirebaseImage';
 
 export const ProductSelector: React.FC = () => {
   const [selectedGasId, setSelectedGasId] = useState<GasTypeId | null>('p13');
@@ -122,9 +123,11 @@ export const ProductSelector: React.FC = () => {
                 </div>
 
                 {/* Clean Product Cylinder Photo */}
+                {/* Clean Product Cylinder Photo loaded via Firebase Storage (getDownloadURL) */}
                 <div className="w-full h-52 rounded-2xl bg-slate-50 mb-4 flex items-center justify-center p-3 overflow-hidden border border-slate-200">
-                  <img
-                    src={prod.image}
+                  <FirebaseImage
+                    storagePath={prod.storagePath}
+                    fallbackSrc={prod.image}
                     alt={prod.name}
                     className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
                   />

@@ -10,6 +10,7 @@ export interface GasProduct {
   idealFor: string;
   description: string;
   image: string;
+  storagePath?: string;
   badge?: string;
   popular?: boolean;
 }
@@ -22,6 +23,7 @@ export interface CustomerReview {
   comment: string;
   date: string;
   verified: boolean;
+  isOnlineSubmission?: boolean;
 }
 
 export type PaymentMethod = 'cartao' | 'pix' | 'dinheiro' | 'gas_do_povo';

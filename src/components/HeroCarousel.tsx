@@ -10,6 +10,17 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { STORE_INFO } from '../data/gasData';
+import { useReviews } from '../context/ReviewsContext';
+import { FirebaseImage } from './FirebaseImage';
+import { FIREBASE_STORAGE_PATHS } from '../firebase/storage';
+
+// Direct imports for reliable bundler-resolved assets on any hosting platform
+import slide1Img from '../assets/images/hero_frota_liquigas_1792805173857.jpg';
+import slide2Img from '../assets/images/hero_familia_cozinha_1792805199902.jpg';
+import slide3Img from '../assets/images/banner_parcelamento_3x_1792802483992.jpg';
+import slide4Img from '../assets/images/hero_entregador_sorriso_1792806580398.jpg';
+import slide5Img from '../assets/images/hero_cozinha_restaurante_1792806616621.jpg';
+import slide6Img from '../assets/images/hero_deposito_caminhoes_1792806617231.jpg';
 
 interface HeroCarouselProps {
   onOrderClick: () => void;
@@ -17,42 +28,48 @@ interface HeroCarouselProps {
 
 const HERO_SLIDES = [
   {
-    image: '/src/assets/images/hero_frota_liquigas_1792805173857.jpg',
+    image: slide1Img,
+    storagePath: FIREBASE_STORAGE_PATHS.carousel[0],
     badge: 'Revendedora Oficial Liquigás · Bauru',
     title: 'Gás de Cozinha com Peso e Qualidade Garantidos',
     subtitle: 'Entrega rápida e segura em todos os bairros de Bauru com botijões certificados.',
     ctaText: 'Pedir no WhatsApp',
   },
   {
-    image: '/src/assets/images/hero_familia_cozinha_1792805199902.jpg',
+    image: slide2Img,
+    storagePath: FIREBASE_STORAGE_PATHS.carousel[1],
     badge: 'Segurança & Rendimento Máximo',
     title: 'Proteção e Economia para a sua Família',
     subtitle: 'Botijões inspecionados com o lacre inviolável original verde Liquigás.',
     ctaText: 'Pedir no WhatsApp',
   },
   {
-    image: '/src/assets/images/banner_parcelamento_3x_1792802483992.jpg',
+    image: slide3Img,
+    storagePath: FIREBASE_STORAGE_PATHS.carousel[2],
     badge: 'Facilidade no Pagamento',
     title: 'Parcele seu Botijão em até 3x no Cartão',
     subtitle: 'Levamos a maquininha sem fio até sua porta. Crédito, Débito, PIX e Vale Gás do Povo.',
     ctaText: 'Pedir no WhatsApp',
   },
   {
-    image: '/src/assets/images/hero_entregador_sorriso_1792806580398.jpg',
+    image: slide4Img,
+    storagePath: FIREBASE_STORAGE_PATHS.carousel[3],
     badge: 'Atendimento Rápido & Amigo',
     title: 'Entrega Ágil e Instalação Grátis',
     subtitle: 'Nossa equipe instala e realiza teste de vazamento com total segurança e respeito.',
     ctaText: 'Pedir no WhatsApp',
   },
   {
-    image: '/src/assets/images/hero_cozinha_restaurante_1792806616621.jpg',
+    image: slide5Img,
+    storagePath: FIREBASE_STORAGE_PATHS.carousel[4],
     badge: 'Comércio, Restaurantes & Residências',
     title: 'Chama Azul e Alto Desempenho Culinário',
     subtitle: 'Fornecimento pontual para residências, condomínios, pizzarias e restaurantes de Bauru.',
     ctaText: 'Pedir no WhatsApp',
   },
   {
-    image: '/src/assets/images/hero_deposito_caminhoes_1792806617231.jpg',
+    image: slide6Img,
+    storagePath: FIREBASE_STORAGE_PATHS.carousel[5],
     badge: '2 Depósitos Estratégicos em Bauru',
     title: 'Estoque Completo e Retirada Imediata',
     subtitle: 'Localizações na Vila Seabra e Jardim Redentor abertas todos os dias até as 23h.',
@@ -62,6 +79,7 @@ const HERO_SLIDES = [
 
 export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onOrderClick }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { averageRatingFormatted, totalReviewsCount } = useReviews();
 
   // Robust, continuous autoplay that never gets stuck
   useEffect(() => {
@@ -86,9 +104,10 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onOrderClick }) => {
                 isActive ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
               }`}
             >
-              {/* Full Width Background Image */}
-              <img
-                src={slide.image}
+              {/* Full Width Background Image loaded via Firebase Storage (getDownloadURL) */}
+              <FirebaseImage
+                storagePath={slide.storagePath}
+                fallbackSrc={slide.image}
                 alt={slide.title}
                 className="w-full h-full object-cover object-center"
               />
@@ -200,8 +219,8 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onOrderClick }) => {
                 <Star className="w-5 h-5 fill-amber-500 text-amber-500" />
               </div>
               <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-extrabold text-slate-900 block truncate">Nota 4.8 no Google</span>
-                <span className="text-[11px] text-slate-500 block truncate">Avaliado por clientes reais</span>
+                <span className="text-xs sm:text-sm font-extrabold text-slate-900 block truncate">Nota {averageRatingFormatted}★ ({totalReviewsCount} avaliações)</span>
+                <span className="text-[11px] text-slate-500 block truncate">Google e Avaliações no Site</span>
               </div>
             </div>
 

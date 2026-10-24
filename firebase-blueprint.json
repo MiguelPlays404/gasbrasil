@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "Review": {
+      "title": "Review",
+      "description": "Avaliação de cliente enviada diretamente pelo site da Gás Brasil",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60,
+          "description": "Nome do cliente que fez a avaliação"
+        },
+        "neighborhood": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60,
+          "description": "Bairro do cliente em Bauru"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Nota atribuída de 1 a 5 estrelas"
+        },
+        "comment": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 500,
+          "description": "Comentário ou depoimento sobre a entrega ou produto"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp de quando a avaliação foi criada"
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "Indica se é uma compra verificada"
+        }
+      },
+      "required": ["name", "neighborhood", "rating", "comment", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Coleção pública de avaliações dos clientes da Gás Brasil"
+    }
+  }
+}

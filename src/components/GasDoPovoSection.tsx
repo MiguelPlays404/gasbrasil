@@ -7,6 +7,12 @@ import {
   Check 
 } from 'lucide-react';
 import { STORE_INFO } from '../data/gasData';
+import { FirebaseImage } from './FirebaseImage';
+import { FIREBASE_STORAGE_PATHS } from '../firebase/storage';
+
+// Direct asset imports for zero-dependency bundler resolution
+import gasDoPovoImg from '../assets/gas_do_povo_oficial.png';
+import parcelamentoImg from '../assets/images/banner_parcelamento_3x_1792802483992.jpg';
 
 interface GasDoPovoSectionProps {
   onOrderClick: () => void;
@@ -37,10 +43,11 @@ export const GasDoPovoSection: React.FC<GasDoPovoSectionProps> = ({ onOrderClick
                   A <strong className="text-slate-900 font-bold">Gás Brasil</strong> é revendedora credenciada oficial da Liquigás em Bauru para o programa. Você recebe o botijão de 13kg lacrado, com peso integral e atendimento prioritário.
                 </p>
 
-                {/* Attached Gás do Povo Image Asset */}
+                {/* Attached Gás do Povo Image Asset loaded via Firebase Storage (getDownloadURL) */}
                 <div className="rounded-2xl overflow-hidden border-2 border-[#008751]/30 bg-slate-50 p-2 flex items-center justify-center">
-                  <img
-                    src="/assets/gas_do_povo_oficial.png"
+                  <FirebaseImage
+                    storagePath={FIREBASE_STORAGE_PATHS.banners.gasDoPovo}
+                    fallbackSrc={gasDoPovoImg}
                     alt="Programa Gás do Povo Liquigás na Gás Brasil Bauru"
                     className="w-full h-auto max-h-[300px] object-contain rounded-xl"
                   />
@@ -70,8 +77,9 @@ export const GasDoPovoSection: React.FC<GasDoPovoSectionProps> = ({ onOrderClick
                   </div>
 
                   {/* Logo Gas Brasil stamp */}
-                  <img
-                    src={STORE_INFO.logoUrl}
+                  <FirebaseImage
+                    storagePath={FIREBASE_STORAGE_PATHS.brand.logo}
+                    fallbackSrc={STORE_INFO.logoUrl}
                     alt="Logo Gás Brasil"
                     className="h-9 w-auto object-contain hidden xs:block"
                   />
@@ -85,10 +93,11 @@ export const GasDoPovoSection: React.FC<GasDoPovoSectionProps> = ({ onOrderClick
                   Sem burocracia: o entregador leva a maquininha sem fio até você na entrega. Aceitamos as principais bandeiras, além de PIX com confirmação imediata.
                 </p>
 
-                {/* Banner 16:9 Cleanly Displayed */}
+                {/* Banner 16:9 Cleanly Displayed loaded via Firebase Storage (getDownloadURL) */}
                 <div className="rounded-2xl overflow-hidden border-2 border-slate-200 shadow-sm bg-slate-50 flex items-center justify-center">
-                  <img
-                    src="/src/assets/images/banner_parcelamento_3x_1792802483992.jpg"
+                  <FirebaseImage
+                    storagePath={FIREBASE_STORAGE_PATHS.banners.parcelamento3x}
+                    fallbackSrc={parcelamentoImg}
                     alt="Parcelamos em até 3x no cartão de crédito"
                     className="w-full h-auto object-contain"
                   />

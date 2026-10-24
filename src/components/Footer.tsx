@@ -9,6 +9,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { STORE_INFO } from '../data/gasData';
+import { FirebaseImage } from './FirebaseImage';
 
 export const Footer: React.FC = () => {
   return (
@@ -20,8 +21,9 @@ export const Footer: React.FC = () => {
           
           {/* Brand & Badge */}
           <div className="flex items-center gap-3.5 text-center sm:text-left">
-            <img
-              src={STORE_INFO.logoUrl}
+            <FirebaseImage
+              storagePath={STORE_INFO.logoStoragePath}
+              fallbackSrc={STORE_INFO.logoUrl}
               alt="Gás Brasil Logo"
               className="h-10 w-auto object-contain bg-white rounded-xl p-1 shrink-0"
             />

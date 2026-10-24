@@ -8,12 +8,16 @@ import {
   ShieldCheck 
 } from 'lucide-react';
 import { STORE_INFO } from '../data/gasData';
+import { useReviews } from '../context/ReviewsContext';
+import { FirebaseImage } from './FirebaseImage';
 
 interface HeaderProps {
   onOrderClick: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
+  const { totalReviewsCount, averageRatingFormatted } = useReviews();
+
   return (
     <header className="w-full bg-white border-b border-slate-200 shadow-xs relative z-20">
       
@@ -26,10 +30,11 @@ export const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5">
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Logo Brand: Using the official 3D Gás Brasil Logo */}
+          {/* Logo Brand: Using the official 3D Gás Brasil Logo via Firebase Storage */}
           <div className="flex items-center gap-2 sm:gap-3.5 min-w-0">
-            <img
-              src={STORE_INFO.logoUrl}
+            <FirebaseImage
+              storagePath={STORE_INFO.logoStoragePath}
+              fallbackSrc={STORE_INFO.logoUrl}
               alt="Gás Brasil Logo"
               className="h-9 sm:h-13 w-auto object-contain drop-shadow-sm hover:scale-105 transition-transform shrink-0"
             />
@@ -61,15 +66,13 @@ export const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
             </div>
 
             <a
-              href={STORE_INFO.googleReviewsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#depoimentos"
               className="flex items-center gap-2 p-2 rounded-xl bg-amber-50/80 border border-amber-200 hover:bg-amber-100 transition-colors"
             >
               <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
               <div>
-                <span className="font-extrabold text-slate-900 block">4.8 no Google</span>
-                <span className="text-[11px] text-slate-600">(76 avaliações)</span>
+                <span className="font-extrabold text-slate-900 block">{averageRatingFormatted}★ Avaliações</span>
+                <span className="text-[11px] text-slate-600">({totalReviewsCount} avaliações)</span>
               </div>
             </a>
           </div>
